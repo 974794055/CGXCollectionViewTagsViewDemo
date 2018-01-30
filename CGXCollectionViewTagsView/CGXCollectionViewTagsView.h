@@ -8,14 +8,34 @@
 
 #import <UIKit/UIKit.h>
 #import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
-//#import "CGXCollectionTagsViewModel.h"
+#import "CGXCollectionTagsViewModel.h"
 #import "CGXCollectionTagsViewManager.h"
-//#import "CGXCollectionTagsView.h"
-//#import "CGXCollectionTagsViewCell.h"
-@interface CGXCollectionViewTagsView : UIView
+@class CGXCollectionViewTagsView;
+#import "CGXCollectionTagsViewCell.h"
+
+@protocol CGXCollectionTagsViewDelegate;
+
+@interface CGXCollectionViewTagsView : UIView<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 - (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager;
 
+@property(nonatomic,weak)id <CGXCollectionTagsViewDelegate>delegate;
+
 @property (nonatomic , strong) CGXCollectionTagsViewManager *manager;//配置
 
+@property (nonatomic,strong)UICollectionView *collectionView;
+
+@end
+
+
+@protocol CGXCollectionTagsViewDelegate <NSObject>
+@optional
+///点击标签
+- (void)selectCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath;
+///展示标签
+- (void)showCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath;
+//返回标签的高度
+- (CGFloat)showCGXCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Height:(CGFloat)myHeight;
+
+- (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath;;
 @end

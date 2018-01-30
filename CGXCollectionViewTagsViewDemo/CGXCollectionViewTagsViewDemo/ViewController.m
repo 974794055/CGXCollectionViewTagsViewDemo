@@ -10,7 +10,7 @@
 #import "CGXCollectionViewTagsView.h"
 #import "CGXCollectionTagsViewManager.h"
 #import "CGXCollectionTagsViewModel.h"
-@interface ViewController ()
+@interface ViewController ()<CGXCollectionTagsViewDelegate>
 
 @property (nonatomic , strong) CGXCollectionViewTagsView *tagsView;
 @property (nonatomic , strong) CGXCollectionTagsViewManager *manager;
@@ -29,7 +29,7 @@
     self.tagsView = [[CGXCollectionViewTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 0) WithManager:self.manager];
     self.tagsView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.tagsView];
-
+   self.tagsView.delegate = self;
 }
 
 
@@ -51,13 +51,34 @@
             }
         }
         _manager.isUser = YES;
-        //        _manager.iSCustom = YES;
+//                _manager.iSCustom = YES;
         _manager.tagsArray = [NSMutableArray arrayWithObjects:arrDAta, nil];
     }
     return _manager;
 }
 
-
+- (void)selectCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"select:%@-%@-%@-%@" , tagsView,model,cell,indexPath);
+}
+- (void)showCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"cell:%@-%@-%@-%@" , tagsView,model,cell,indexPath);
+    cell.tagsLabel.textColor = self.manager.titleColor;
+    cell.tagsLabel.font = [UIFont systemFontOfSize:self.manager.titleSize];
+    cell.tagsLabel.backgroundColor = self.manager.itemColor;
+    cell.tagsLabel.text = model.title;
+    cell.tagsLabel.textAlignment =NSTextAlignmentCenter;
+    cell.tagsLabel.layer.cornerRadius = self.manager.cornerRadius;
+    cell.tagsLabel.layer.masksToBounds = YES;
+    cell.tagsLabel.layer.borderWidth = self.manager.borderWidth;
+    cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
+    cell.tagsLabel.userInteractionEnabled = !self.manager.isUser;
+}
+- (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(150, 50);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

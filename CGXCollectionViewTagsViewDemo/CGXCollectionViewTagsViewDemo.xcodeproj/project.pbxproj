@@ -41,6 +41,7 @@
 		D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewCell.h; sourceTree = "<group>"; };
 		D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewModel.h; sourceTree = "<group>"; };
 		D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewModel.m; sourceTree = "<group>"; };
+		D32DF42A2020A5B700C6F972 /* CGXCollectionTagsViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +91,7 @@
 		D32DF40820208FFB00C6F972 /* CGXCollectionViewTagsView */ = {
 			isa = PBXGroup;
 			children = (
+				D32DF42A2020A5B700C6F972 /* CGXCollectionTagsViewMacro.h */,
 				D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */,
 				D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */,
 				D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */,

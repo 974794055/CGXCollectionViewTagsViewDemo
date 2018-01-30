@@ -10,5 +10,6 @@
 
 @interface CGXCollectionTagsViewCell : UICollectionViewCell
 
+@property (nonatomic , strong) UILabel *tagsLabel;
 
 @end
