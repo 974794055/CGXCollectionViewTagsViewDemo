@@ -12,6 +12,6 @@
 #import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
 #import "CGXCollectionTagsViewModel.h"
 #import "CGXCollectionTagsViewManager.h"
-#import "CGXCollectionViewTagsView.h"
+#import "CGXCollectionTagsView.h"
 #import "CGXCollectionTagsViewCell.h"
 #endif /* CGXCollectionTagsViewMacro_h */
