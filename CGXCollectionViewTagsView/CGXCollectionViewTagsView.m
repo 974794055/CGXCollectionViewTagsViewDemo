@@ -10,6 +10,19 @@
 
 @implementation CGXCollectionViewTagsView
 
+- (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.manager = manager;
+        
+        self.backgroundColor  =self.manager.backgroundColor;
+        
+    }
+    return self;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

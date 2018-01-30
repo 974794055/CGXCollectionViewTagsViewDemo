@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
+//#import "CGXCollectionTagsViewModel.h"
+#import "CGXCollectionTagsViewManager.h"
+//#import "CGXCollectionTagsView.h"
+//#import "CGXCollectionTagsViewCell.h"
 @interface CGXCollectionViewTagsView : UIView
+
+- (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager;
+
+@property (nonatomic , strong) CGXCollectionTagsViewManager *manager;//配置
 
 @end
