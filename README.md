@@ -1,0 +1,2 @@
+# CGXCollectionViewTagsViewDemo-
+A CGXCollectionViewTagsViewDemo
