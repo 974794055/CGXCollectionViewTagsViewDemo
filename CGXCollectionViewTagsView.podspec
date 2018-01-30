@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CGXCollectionViewTagsView"    #存储库名称
-  s.version      = "0.0.3"      #版本号，与tag值一致
+  s.version      = "0.0.1"      #版本号，与tag值一致
   s.summary      = "a CGXCollectionViewTagsView demo"  #简介
   s.description  = "a CGXCollectionViewTagsView"  #描述
   s.homepage     = "https://github.com/974794055/CGXCollectionViewTagsViewDemo"      #项目主页，不是git地址
