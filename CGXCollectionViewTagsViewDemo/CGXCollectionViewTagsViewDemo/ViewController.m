@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "CGXCollectionViewTagsView.h"
+#import "CGXCollectionTagsView.h"
 #import "CGXCollectionTagsViewManager.h"
 #import "CGXCollectionTagsViewModel.h"
 @interface ViewController ()<CGXCollectionTagsViewDelegate>
 
-@property (nonatomic , strong) CGXCollectionViewTagsView *tagsView;
+@property (nonatomic , strong) CGXCollectionTagsView *tagsView;
 @property (nonatomic , strong) CGXCollectionTagsViewManager *manager;
 
 @end
@@ -26,7 +26,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tagsView = [[CGXCollectionViewTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 0) WithManager:self.manager];
+    self.tagsView = [[CGXCollectionTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 0) WithManager:self.manager];
     self.tagsView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.tagsView];
    self.tagsView.delegate = self;
@@ -57,11 +57,11 @@
     return _manager;
 }
 
-- (void)selectCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)selectCollectionTagsView:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"select:%@-%@-%@-%@" , tagsView,model,cell,indexPath);
 }
-- (void)showCollectionTagsView:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)showCollectionTagsView:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell:%@-%@-%@-%@" , tagsView,model,cell,indexPath);
     cell.tagsLabel.textColor = self.manager.titleColor;
@@ -75,7 +75,7 @@
     cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
     cell.tagsLabel.userInteractionEnabled = !self.manager.isUser;
 }
-- (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionViewTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(150, 50);
 }

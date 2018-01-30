@@ -13,7 +13,7 @@
 		D32DF3FC20208FCD00C6F972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3FB20208FCD00C6F972 /* Assets.xcassets */; };
 		D32DF3FF20208FCD00C6F972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3FD20208FCD00C6F972 /* LaunchScreen.storyboard */; };
 		D32DF40220208FCD00C6F972 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40120208FCD00C6F972 /* main.m */; };
-		D32DF40B2020900600C6F972 /* CGXCollectionViewTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40A2020900600C6F972 /* CGXCollectionViewTagsView.m */; };
+		D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */; };
 		D32DF42020209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */; };
 		D32DF42320209DE300C6F972 /* CGXCollectionTagsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */; };
 		D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */; };
@@ -31,8 +31,8 @@
 		D32DF3FE20208FCD00C6F972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D32DF40020208FCD00C6F972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D32DF40120208FCD00C6F972 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D32DF4092020900600C6F972 /* CGXCollectionViewTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCollectionViewTagsView.h; sourceTree = "<group>"; };
-		D32DF40A2020900600C6F972 /* CGXCollectionViewTagsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionViewTagsView.m; sourceTree = "<group>"; };
+		D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsView.h; sourceTree = "<group>"; };
+		D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsView.m; sourceTree = "<group>"; };
 		D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionViewLeftAlignedTagsFlowLayout.m; sourceTree = "<group>"; };
 		D32DF41F20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionViewLeftAlignedTagsFlowLayout.h; sourceTree = "<group>"; };
 		D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewManager.m; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 				D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */,
 				D32DF41F20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.h */,
 				D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */,
-				D32DF4092020900600C6F972 /* CGXCollectionViewTagsView.h */,
-				D32DF40A2020900600C6F972 /* CGXCollectionViewTagsView.m */,
+				D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */,
+				D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */,
 				D32DF42220209DE300C6F972 /* CGXCollectionTagsViewManager.h */,
 				D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */,
 			);
@@ -183,7 +183,7 @@
 				D32DF42020209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m in Sources */,
 				D32DF3F720208FCD00C6F972 /* ViewController.m in Sources */,
 				D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */,
-				D32DF40B2020900600C6F972 /* CGXCollectionViewTagsView.m in Sources */,
+				D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */,
 				D32DF40220208FCD00C6F972 /* main.m in Sources */,
 				D32DF3F420208FCD00C6F972 /* AppDelegate.m in Sources */,
 			);

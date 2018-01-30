@@ -6,14 +6,14 @@
 //  Copyright © 2018年 曹贵鑫. All rights reserved.
 //
 
-#import "CGXCollectionViewTagsView.h"
+#import "CGXCollectionTagsView.h"
 #define CGXCollectionViewTagScreenWidth                 [UIScreen mainScreen].bounds.size.width
 #define CGXCollectionViewTagScreenHeight                [UIScreen mainScreen].bounds.size.height
 
 #define CGXCollectionViewTagScaleHeight(A) A / (double)667 * CGXCollectionViewTagScreenHeight
 #define CGXCollectionViewTagScaleWidth(W)  W / (double)375 * CGXCollectionViewTagScreenWidth
 
-@interface CGXCollectionViewTagsView ()
+@interface CGXCollectionTagsView ()
 {
     CGFloat viewW;
     CGFloat viewH;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation CGXCollectionViewTagsView
+@implementation CGXCollectionTagsView
 
 - (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager
 {
