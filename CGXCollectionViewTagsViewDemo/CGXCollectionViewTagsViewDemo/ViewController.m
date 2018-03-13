@@ -26,7 +26,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tagsView = [[CGXCollectionTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 0) WithManager:self.manager];
+    self.tagsView = [[CGXCollectionTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 100) WithManager:self.manager];
     self.tagsView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.tagsView];
    self.tagsView.delegate = self;
@@ -38,17 +38,26 @@
     if (!_manager) {
         _manager = [[CGXCollectionTagsViewManager alloc] initWithType:CGXCollectionTagsViewManagerStyleNode];
         NSMutableArray *arr = [NSMutableArray array];
-        for (int i = 0; i<20; i++) {
-            NSDictionary *dict = @{@"title":[NSString stringWithFormat:@"添加%d",i]};
+        
+       NSArray *tagsArr= @[@"锤子",@"见过",@"膜拜单车",@"微信支付",@"QQ",@"阿珂",@"王者荣耀",@"蓝淋网",@"半生",@"猎场",@"QQ空间",@"王者荣耀助手",@"斯卡哈复健科",@"安抚",@"沙发上",@"日打的费",@"问问",@"无人区",@"阿斯废弃物人情味",@"沙发上",@"日打的费",@"问问",@"无人区",@"阿斯废弃物人情味",@"沙发上",@"日打的费",@"问问",@"无人区",@"阿斯废弃物人情味",@"沙发上",@"日打的费",@"问问",@"无人区",@"阿斯废弃物人情味"];
+        
+        for (int i = 0; i<tagsArr.count; i++) {
+            int R = (arc4random() % 256) ;
+            int G = (arc4random() % 256) ;
+            int B = (arc4random() % 256) ;
+    
+            UIColor *color = [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1];
+            NSDictionary *dict = @{@"title":tagsArr[i],
+                                   @"tagsDic":@{@"tags":@"12"},
+                                   @"itemColor":color
+                                   };
             [arr addObject:dict];
         }
         NSMutableArray *arrDAta = [NSMutableArray array];
         for (int i = 0; i<arr.count; i++) {
-            if (i <12) {
                 CGXCollectionTagsViewModel *model =[CGXCollectionTagsViewModel new];
                 [model setValuesForKeysWithDictionary:arr[i]];
                 [arrDAta addObject:model];
-            }
         }
         _manager.isUser = YES;
 //                _manager.iSCustom = YES;
@@ -77,6 +86,11 @@
 }
 - (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row %2 ==0){
+        return CGSizeMake(150, 50);
+    }else{
+        return CGSizeMake(100, 50);
+    }
     return CGSizeMake(150, 50);
 }
 - (void)didReceiveMemoryWarning {

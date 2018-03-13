@@ -36,6 +36,6 @@
 - (void)showCollectionTagsView:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath;
 //返回标签的高度
 - (CGFloat)showCGXCollectionTagsView:(CGXCollectionTagsView *)tagsView Height:(CGFloat)myHeight;
-
+//
 - (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath;;
 @end

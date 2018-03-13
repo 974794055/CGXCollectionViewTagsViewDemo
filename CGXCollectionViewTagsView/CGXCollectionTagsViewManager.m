@@ -32,7 +32,7 @@
     
     self.isUser = NO;
 
-    self.isSlide  =NO;
+    //self.isSlide  =NO;
     self.iSCustom = NO;
     self.borderColor = [UIColor colorWithWhite:0.93 alpha:1];
     self.borderWidth = 1.5;

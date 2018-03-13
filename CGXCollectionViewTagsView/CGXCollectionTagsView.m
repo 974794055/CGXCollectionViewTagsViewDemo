@@ -64,7 +64,7 @@
 {
     [super layoutSubviews];
     
-    
+
     CGXCollectionViewLeftAlignedTagsFlowLayout *layout = (CGXCollectionViewLeftAlignedTagsFlowLayout *)_collectionView.collectionViewLayout;
     [layout invalidateLayout];
     
@@ -72,17 +72,20 @@
     if (!CGSizeEqualToSize(self.bounds.size, [self intrinsicContentSize])) {
         [self invalidateIntrinsicContentSize];
     }
+    
     CGFloat height = _collectionView.collectionViewLayout.collectionViewContentSize.height;
     if (height != 0 && height != self.bounds.size.height) {
         CGRect frame = self.frame;
-        frame.size.height = height;
-        self.frame = frame;
-        _collectionView.frame = self.bounds;
+            frame.size.height = height;
+            self.frame = frame;
+            _collectionView.frame = self.bounds;
         // blcok返回高度
         if ([self.delegate respondsToSelector:@selector(showCGXCollectionTagsView:Height:)]) {
             [self.delegate showCGXCollectionTagsView:self Height:height];
         }
     }
+        
+   
 }
 - (CGSize)intrinsicContentSize
 {
@@ -142,6 +145,7 @@
             CGSize size = [self.delegate showCGXCollectionTagsViewItemHeight:self Model:model Cell:cell ItemAtIndexPath:indexPath];
             return size;
         }
+        return CGSizeMake(ceilf(size.width)+self.manager.tagSpace,ceilf(size.height));
     }
     return CGSizeMake(ceilf(size.width)+self.manager.tagSpace,self.manager.tagHeight);
 }
@@ -149,7 +153,7 @@
 {
     CGSize size;
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:self.manager.titleSize], NSFontAttributeName, nil];
-    size = [title boundingRectWithSize:CGSizeMake(viewW-3*CGXCollectionViewTagScaleWidth(10),MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
+    size = [title boundingRectWithSize:CGSizeMake(viewW-2*self.manager.minimumInteritemSpacing-self.manager.tagSpace,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
     return CGSizeMake(size.width, size.height);
 }
 
@@ -157,7 +161,6 @@
 {
     CGXCollectionTagsViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CGXCollectionTagsViewCell" forIndexPath:indexPath];
     CGXCollectionTagsViewModel *model = self.manager.tagsArray[indexPath.section][indexPath.row];
-
     if (self.manager.iSCustom) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(showCollectionTagsView:Model:Cell:ItemAtIndexPath:)]) {
             [self.delegate showCollectionTagsView:self Model:model Cell:cell ItemAtIndexPath:indexPath];

@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, CGXCollectionTagsViewManagerStyle) {
 
 @property (nonatomic , assign) BOOL isUser;//是否支持点击cell   默认不支持  为NO
 
-@property (nonatomic , assign) BOOL isSlide;//是否支持滑动   默认不支持  为NO
+//@property (nonatomic , assign) BOOL isSlide;//是否支持滑动   默认不支持  为NO
 
 @property (nonatomic , assign) BOOL iSCustom;//是否支持自定义  默认为NO
 
