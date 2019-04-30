@@ -33,7 +33,7 @@
      self.tagsView.delegate = self;
     self.tagsView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.tagsView];
-    self.tagsView.cellType = CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft;
+    self.tagsView.cellType = CGXCollectionTagsViewAlignDirectionLeft;
     self.tagsView.frame = CGRectMake(20, 64, self.view.frame.size.width-40, 100);
   
 }

@@ -12,10 +12,10 @@
 #import "CGXCollectionTagsViewManager.h"
 #import "CGXCollectionTagsViewCell.h"
 
-typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignFlowLayoutAlignType){
-    CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft,
-    CGXCollectionTagsViewAlignFlowLayoutAlignWithCenter,
-    CGXCollectionTagsViewAlignFlowLayoutAlignWithRight
+typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignDirectionType){
+    CGXCollectionTagsViewAlignDirectionLeft,
+    CGXCollectionTagsViewAlignDirectionCenter,
+    CGXCollectionTagsViewAlignDirectionRight
 };
 
 @class CGXCollectionTagsView;
@@ -39,7 +39,7 @@ typedef void(^CGXCollectionTagsViewHeightBlock)(CGXCollectionTagsView *tagsView,
 @property (nonatomic , strong) CGXCollectionTagsViewManager *manager;//配置
 
 //cell对齐方式
-@property (nonatomic,assign) CGXCollectionTagsViewAlignFlowLayoutAlignType cellType;
+@property (nonatomic,assign) CGXCollectionTagsViewAlignDirectionType cellType;
 // 是否是自适应高度 默认YES
 @property (nonatomic,assign) BOOL isAdaptive;
 

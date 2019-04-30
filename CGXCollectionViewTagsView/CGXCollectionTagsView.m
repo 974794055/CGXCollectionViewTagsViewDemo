@@ -72,7 +72,7 @@
 {
     _manager = manager;
 }
-- (void)setCellType:(CGXCollectionTagsViewAlignFlowLayoutAlignType)cellType
+- (void)setCellType:(CGXCollectionTagsViewAlignDirectionType)cellType
 {
     _cellType = cellType;
     self.collectionView.collectionViewLayout = [self preferredFlowLayout];
@@ -81,9 +81,9 @@
 - (CGXCollectionViewLeftAlignedTagsFlowLayout *)preferredFlowLayout
 {
     CGXCustomStateTagsAlignFlowLayoutAlignType cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
-    if (self.cellType==CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft) {
+    if (self.cellType==CGXCollectionTagsViewAlignDirectionLeft) {
         cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithLeft;
-    } else if (self.cellType == CGXCollectionTagsViewAlignFlowLayoutAlignWithRight){
+    } else if (self.cellType == CGXCollectionTagsViewAlignDirectionRight){
         cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithRight;
     }else{
         cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
