@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CGXCollectionTagsViewModel.h"
 typedef NS_ENUM(NSInteger, CGXCollectionTagsViewManagerStyle) {
     CGXCollectionTagsViewManagerStyleNode,
     CGXCollectionTagsViewManagerStyleNome,
@@ -31,27 +32,27 @@ typedef NS_ENUM(NSInteger, CGXCollectionTagsViewManagerStyle) {
  */
 @property (nonatomic , strong) NSMutableArray *tagsArray;//标签数组
 
-@property (nonatomic , assign) BOOL isUser;//是否支持点击cell   默认不支持  为NO
-
 //@property (nonatomic , assign) BOOL isSlide;//是否支持滑动   默认不支持  为NO
 
 @property (nonatomic , assign) BOOL iSCustom;//是否支持自定义  默认为NO
+
+//  * 一下已废弃 ，使用CGXCollectionTagsViewModel 初始化每个item //
+
+@property (nonatomic , assign) BOOL isUser;//是否支持点击cell   默认不支持  为NO
 
 @property (nonatomic , strong) UIColor *backgroundColor;
 @property (nonatomic,strong) UIColor *borderColor;//标签边框颜色
 @property (nonatomic,assign) float borderWidth;//标签边框宽度
 @property (nonatomic,assign) float cornerRadius;//标签圆角大小
-
 @property (nonatomic,assign) float titleSize;//标签字体大小
 @property (nonatomic,strong) UIColor *titleColor;//标签字体颜色
 @property (nonatomic,strong) UIColor *itemColor;//标签字背景颜色
 
+
+@property (nonatomic) UIEdgeInsets edgeInsets;//每个item偏移量
 @property (nonatomic , assign) NSInteger minimumLineSpacing;//默认是10
 @property (nonatomic , assign) NSInteger minimumInteritemSpacing;//默认是10
-
-
 @property (nonatomic,assign) float tagSpace;//标签内部左右间距(标题距离边框2边的距离和)
-
 
 @property (nonatomic,assign) float tagHeight;//标签高度
 @property (nonatomic,assign) float headerHeight;//标签头高度
@@ -61,6 +62,5 @@ typedef NS_ENUM(NSInteger, CGXCollectionTagsViewManagerStyle) {
 @property (nonatomic,strong) UIColor *headerBackgroundColor;//头背景颜色
 @property (nonatomic,strong) UIColor *footerBackgroundColor;//脚背景颜色
 
-@property (nonatomic) UIEdgeInsets edgeInsets;//每个item偏移量
 
 @end

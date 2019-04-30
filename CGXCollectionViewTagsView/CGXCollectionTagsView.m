@@ -14,10 +14,6 @@
 #define CGXCollectionViewTagScaleWidth(W)  W / (double)375 * CGXCollectionViewTagScreenWidth
 
 @interface CGXCollectionTagsView ()
-{
-    CGFloat viewW;
-    CGFloat viewH;
-}
 
 @end
 
@@ -27,65 +23,103 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         self.manager = manager;
+        [self initializeView];
         
-        self.backgroundColor  =self.manager.backgroundColor;
-        
-        viewH = frame.size.height;
-        viewW = frame.size.width;
-        
-        [self.collectionView reloadData];
     }
     return self;
 }
 
-- (UICollectionView *)collectionView
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    if (!_collectionView) {
-        CGXCollectionViewLeftAlignedTagsFlowLayout *flowLayout = [[CGXCollectionViewLeftAlignedTagsFlowLayout alloc] init];
-        
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, viewW, viewH) collectionViewLayout:flowLayout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
-        //注册
-        [_collectionView registerClass:[CGXCollectionTagsViewCell class] forCellWithReuseIdentifier:@"CGXCollectionTagsViewCell"];
-        
-        //给collectionView注册头分区的Id
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerId"];
-        //给collection注册脚分区的id
-        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footerId"];
-        [self addSubview:_collectionView];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initializeView];
     }
-    return _collectionView;
+    return self;
+}
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initializeView];
+    }
+    return self;
+}
+- (void)initializeView
+{
+    self.isAdaptive = YES;
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) collectionViewLayout:[self preferredFlowLayout]];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [_collectionView setBackgroundColor:[UIColor clearColor]];
+    //注册
+    [_collectionView registerClass:[CGXCollectionTagsViewCell class] forCellWithReuseIdentifier:@"CGXCollectionTagsViewCell"];
+    
+    //给collectionView注册头分区的Id
+    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerId"];
+    //给collection注册脚分区的id
+    [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footerId"];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    [self addSubview:_collectionView];
+    [self.collectionView reloadData];
+    
+    self.backgroundColor  =self.manager.backgroundColor;
+}
+- (void)setManager:(CGXCollectionTagsViewManager *)manager
+{
+    _manager = manager;
+}
+- (void)setCellType:(CGXCollectionTagsViewAlignFlowLayoutAlignType)cellType
+{
+    _cellType = cellType;
+    self.collectionView.collectionViewLayout = [self preferredFlowLayout];
+    [self.collectionView reloadData];
+}
+- (CGXCollectionViewLeftAlignedTagsFlowLayout *)preferredFlowLayout
+{
+    CGXCustomStateTagsAlignFlowLayoutAlignType cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
+    if (self.cellType==CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft) {
+        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithLeft;
+    } else if (self.cellType == CGXCollectionTagsViewAlignFlowLayoutAlignWithRight){
+        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithRight;
+    }else{
+        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
+    }
+    CGXCollectionViewLeftAlignedTagsFlowLayout *flowLayout = [[CGXCollectionViewLeftAlignedTagsFlowLayout alloc] initWthType:cellType];
+    return flowLayout;
 }
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-
-    CGXCollectionViewLeftAlignedTagsFlowLayout *layout = (CGXCollectionViewLeftAlignedTagsFlowLayout *)_collectionView.collectionViewLayout;
-    [layout invalidateLayout];
-    
-    _collectionView.frame = self.bounds;
-    if (!CGSizeEqualToSize(self.bounds.size, [self intrinsicContentSize])) {
-        [self invalidateIntrinsicContentSize];
-    }
-    
-    CGFloat height = _collectionView.collectionViewLayout.collectionViewContentSize.height;
-    if (height != 0 && height != self.bounds.size.height) {
-        CGRect frame = self.frame;
+    if (self.isAdaptive) {
+        CGXCollectionViewLeftAlignedTagsFlowLayout *layout = (CGXCollectionViewLeftAlignedTagsFlowLayout *)_collectionView.collectionViewLayout;
+        [layout invalidateLayout];
+        
+        _collectionView.frame = self.bounds;
+        if (!CGSizeEqualToSize(self.bounds.size, [self intrinsicContentSize])) {
+            [self invalidateIntrinsicContentSize];
+        }
+        
+        CGFloat height = _collectionView.collectionViewLayout.collectionViewContentSize.height;
+        if (height != 0 && height != self.bounds.size.height) {
+            CGRect frame = self.frame;
             frame.size.height = height;
             self.frame = frame;
             _collectionView.frame = self.bounds;
-        // blcok返回高度
-        if ([self.delegate respondsToSelector:@selector(showCGXCollectionTagsView:Height:)]) {
-            [self.delegate showCGXCollectionTagsView:self Height:height];
+            // blcok返回高度
+            if ([self.delegate respondsToSelector:@selector(showCGXCollectionTagsView:Height:)]) {
+                [self.delegate showCGXCollectionTagsView:self Height:height];
+            }
+            __weak typeof(self) weakSelf = self;
+            if (self.heightBlock) {
+                self.heightBlock(weakSelf, height);
+            }
         }
     }
-        
-   
 }
 - (CGSize)intrinsicContentSize
 {
@@ -112,11 +146,11 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(viewW, self.manager.headerSectionHeight);
+    return CGSizeMake(CGRectGetWidth(collectionView.frame), self.manager.headerSectionHeight);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    return CGSizeMake(viewW, self.manager.footerSectionHeight);
+    return CGSizeMake(CGRectGetWidth(collectionView.frame), self.manager.footerSectionHeight);
 }
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -153,7 +187,7 @@
 {
     CGSize size;
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:self.manager.titleSize], NSFontAttributeName, nil];
-    size = [title boundingRectWithSize:CGSizeMake(viewW-2*self.manager.minimumInteritemSpacing-self.manager.tagSpace,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
+    size = [title boundingRectWithSize:CGSizeMake(CGRectGetWidth(self.frame)-2*self.manager.minimumInteritemSpacing-self.manager.tagSpace,MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil].size;
     return CGSizeMake(size.width, size.height);
 }
 
@@ -165,6 +199,10 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(showCollectionTagsView:Model:Cell:ItemAtIndexPath:)]) {
             [self.delegate showCollectionTagsView:self Model:model Cell:cell ItemAtIndexPath:indexPath];
         }
+        __weak typeof(self) weakSelf = self;
+        if (self.cellForItemBlock) {
+            self.cellForItemBlock(weakSelf, model, cell, indexPath);
+        }
     } else{
         if (model.titleColor) {
             cell.tagsLabel.textColor = model.titleColor;
@@ -172,29 +210,29 @@
             cell.tagsLabel.textColor = self.manager.titleColor;
         }
         if (model.titleSize) {
-            cell.tagsLabel.font = [UIFont systemFontOfSize:model.titleSize];
+            cell.tagsLabel.font = model.titleSize;
         } else{
             cell.tagsLabel.font = [UIFont systemFontOfSize:self.manager.titleSize];
         }
-         if (model.itemColor) {
+        if (model.itemColor) {
             cell.tagsLabel.backgroundColor = model.itemColor;
-         }else{
-            cell.tagsLabel.backgroundColor = self.manager.itemColor;
-         }
-        if (model.cornerRadius) {
-          cell.tagsLabel.layer.cornerRadius = model.cornerRadius;
-       }else{
-          cell.tagsLabel.layer.cornerRadius = self.manager.cornerRadius;
-       }
-        if (model.borderWidth) {
-          cell.tagsLabel.layer.borderWidth = model.borderWidth;
         }else{
-          cell.tagsLabel.layer.borderWidth = self.manager.borderWidth;
+            cell.tagsLabel.backgroundColor = self.manager.itemColor;
+        }
+        if (model.cornerRadius) {
+            cell.tagsLabel.layer.cornerRadius = model.cornerRadius;
+        }else{
+            cell.tagsLabel.layer.cornerRadius = self.manager.cornerRadius;
+        }
+        if (model.borderWidth) {
+            cell.tagsLabel.layer.borderWidth = model.borderWidth;
+        }else{
+            cell.tagsLabel.layer.borderWidth = self.manager.borderWidth;
         }
         if (model.borderColor) {
-             cell.tagsLabel.layer.borderColor = model.borderColor.CGColor;
+            cell.tagsLabel.layer.borderColor = model.borderColor.CGColor;
         }else{
-           cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
+            cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
         }
         cell.tagsLabel.userInteractionEnabled = !self.manager.isUser;
         cell.tagsLabel.text = model.title;
@@ -211,6 +249,10 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(selectCollectionTagsView:Model:Cell:ItemAtIndexPath:)]) {
             [self.delegate selectCollectionTagsView:self Model:model Cell:cell ItemAtIndexPath:indexPath];
         }
+        __weak typeof(self) weakSelf = self;
+        if (self.selectBlock) {
+            self.selectBlock(weakSelf, model, cell, indexPath);
+        }
     }
 }
 - (void)upDateCollectionView
@@ -222,11 +264,11 @@
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

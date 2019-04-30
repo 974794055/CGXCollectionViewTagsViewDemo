@@ -26,10 +26,16 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tagsView = [[CGXCollectionTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 100) WithManager:self.manager];
+//    self.tagsView = [[CGXCollectionTagsView alloc] initWithFrame:CGRectMake(20, 64, self.view.frame.size.width-40, 100) WithManager:self.manager];
+    
+    self.tagsView = [[CGXCollectionTagsView alloc] init];
+    self.tagsView.manager = self.manager;
+     self.tagsView.delegate = self;
     self.tagsView.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [self.view addSubview:self.tagsView];
-   self.tagsView.delegate = self;
+    self.tagsView.cellType = CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft;
+    self.tagsView.frame = CGRectMake(20, 64, self.view.frame.size.width-40, 100);
+  
 }
 
 
@@ -56,6 +62,12 @@
         NSMutableArray *arrDAta = [NSMutableArray array];
         for (int i = 0; i<arr.count; i++) {
                 CGXCollectionTagsViewModel *model =[CGXCollectionTagsViewModel new];
+            int R = (arc4random() % 256) ;
+            int G = (arc4random() % 256) ;
+            int B = (arc4random() % 256) ;
+            
+            UIColor *color = [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1];
+            model.itemColor =  color;
                 [model setValuesForKeysWithDictionary:arr[i]];
                 [arrDAta addObject:model];
         }
@@ -73,16 +85,16 @@
 - (void)showCollectionTagsView:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"cell:%@-%@-%@-%@" , tagsView,model,cell,indexPath);
-    cell.tagsLabel.textColor = self.manager.titleColor;
-    cell.tagsLabel.font = [UIFont systemFontOfSize:self.manager.titleSize];
-    cell.tagsLabel.backgroundColor = self.manager.itemColor;
-    cell.tagsLabel.text = model.title;
-    cell.tagsLabel.textAlignment =NSTextAlignmentCenter;
-    cell.tagsLabel.layer.cornerRadius = self.manager.cornerRadius;
-    cell.tagsLabel.layer.masksToBounds = YES;
-    cell.tagsLabel.layer.borderWidth = self.manager.borderWidth;
-    cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
-    cell.tagsLabel.userInteractionEnabled = !self.manager.isUser;
+//    cell.tagsLabel.textColor = self.manager.titleColor;
+//    cell.tagsLabel.font = [UIFont systemFontOfSize:self.manager.titleSize];
+//    cell.tagsLabel.backgroundColor = self.manager.itemColor;
+//    cell.tagsLabel.text = model.title;
+//    cell.tagsLabel.textAlignment =NSTextAlignmentCenter;
+//    cell.tagsLabel.layer.cornerRadius = self.manager.cornerRadius;
+//    cell.tagsLabel.layer.masksToBounds = YES;
+//    cell.tagsLabel.layer.borderWidth = self.manager.borderWidth;
+//    cell.tagsLabel.layer.borderColor = self.manager.borderColor.CGColor;
+//    cell.tagsLabel.userInteractionEnabled = !self.manager.isUser;
 }
 - (CGSize)showCGXCollectionTagsViewItemHeight:(CGXCollectionTagsView *)tagsView Model:(CGXCollectionTagsViewModel *)model Cell:(CGXCollectionTagsViewCell *)cell ItemAtIndexPath:(NSIndexPath *)indexPath
 {

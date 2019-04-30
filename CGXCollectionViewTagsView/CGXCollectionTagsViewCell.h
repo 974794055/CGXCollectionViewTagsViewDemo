@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CGXCollectionTagsViewModel.h"
 @interface CGXCollectionTagsViewCell : UICollectionViewCell
 
 @property (nonatomic , strong) UILabel *tagsLabel;
+
+- (void)updateWithModel:(CGXCollectionTagsViewModel *)model;
+
 
 @end

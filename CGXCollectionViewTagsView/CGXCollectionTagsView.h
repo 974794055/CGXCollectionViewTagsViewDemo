@@ -13,17 +13,40 @@
 @class CGXCollectionTagsView;
 #import "CGXCollectionTagsViewCell.h"
 
+typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignFlowLayoutAlignType){
+    CGXCollectionTagsViewAlignFlowLayoutAlignWithLeft,
+    CGXCollectionTagsViewAlignFlowLayoutAlignWithCenter,
+    CGXCollectionTagsViewAlignFlowLayoutAlignWithRight
+};
+
+//点击block
+typedef void(^CGXCollectionTagsViewSelectBlock)(CGXCollectionTagsView *tagsView,CGXCollectionTagsViewModel *tagModel,CGXCollectionTagsViewCell *cell,NSIndexPath *indexPath);
+//展示block
+typedef void(^CGXCollectionTagsViewCellForItemBlock)(CGXCollectionTagsView *tagsView,CGXCollectionTagsViewModel *tagModel,CGXCollectionTagsViewCell *cell,NSIndexPath *indexPath);
+//返回高度
+typedef void(^CGXCollectionTagsViewHeightBlock)(CGXCollectionTagsView *tagsView,CGFloat height);
+
 @protocol CGXCollectionTagsViewDelegate;
 
 @interface CGXCollectionTagsView : UIView<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
+//可不使用此初始化方式
 - (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager;
 
 @property(nonatomic,weak)id <CGXCollectionTagsViewDelegate>delegate;
 
 @property (nonatomic , strong) CGXCollectionTagsViewManager *manager;//配置
 
+//cell对齐方式
+@property (nonatomic,assign) CGXCollectionTagsViewAlignFlowLayoutAlignType cellType;
+// 是否是自适应高度 默认YES
+@property (nonatomic,assign) BOOL isAdaptive;
+
 @property (nonatomic,strong)UICollectionView *collectionView;
+
+@property (nonatomic,copy) CGXCollectionTagsViewSelectBlock selectBlock;
+@property (nonatomic,copy) CGXCollectionTagsViewCellForItemBlock cellForItemBlock;
+@property (nonatomic,copy) CGXCollectionTagsViewHeightBlock heightBlock;
 
 @end
 

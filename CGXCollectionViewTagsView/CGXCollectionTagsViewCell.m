@@ -42,4 +42,18 @@
     }
     return _tagsLabel;
 }
+
+- (void)updateWithModel:(CGXCollectionTagsViewModel *)model
+{
+    self.tagsLabel.textColor = model.titleColor;
+    self.tagsLabel.font =model.titleSize;
+    self.tagsLabel.backgroundColor = model.itemColor;
+    self.tagsLabel.text = model.title;
+    self.tagsLabel.textAlignment =NSTextAlignmentCenter;
+    self.tagsLabel.layer.cornerRadius = model.cornerRadius;
+    self.tagsLabel.layer.masksToBounds = YES;
+    self.tagsLabel.layer.borderWidth = model.borderWidth;
+    self.tagsLabel.layer.borderColor = model.borderColor.CGColor;
+    self.tagsLabel.userInteractionEnabled = !model.isUser;
+}
 @end
