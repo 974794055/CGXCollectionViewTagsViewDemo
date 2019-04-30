@@ -10,7 +10,6 @@
 #import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
 #import "CGXCollectionTagsViewModel.h"
 #import "CGXCollectionTagsViewManager.h"
-@class CGXCollectionTagsView;
 #import "CGXCollectionTagsViewCell.h"
 
 typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignFlowLayoutAlignType){
@@ -18,6 +17,8 @@ typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignFlowLayoutAlignType){
     CGXCollectionTagsViewAlignFlowLayoutAlignWithCenter,
     CGXCollectionTagsViewAlignFlowLayoutAlignWithRight
 };
+
+@class CGXCollectionTagsView;
 
 //点击block
 typedef void(^CGXCollectionTagsViewSelectBlock)(CGXCollectionTagsView *tagsView,CGXCollectionTagsViewModel *tagModel,CGXCollectionTagsViewCell *cell,NSIndexPath *indexPath);
