@@ -7,6 +7,8 @@
 //
 
 #import "CGXCollectionTagsView.h"
+#import "CGXCollectionTagsViewAlignedFlowLayout.h"
+
 #define CGXCollectionViewTagScreenWidth                 [UIScreen mainScreen].bounds.size.width
 #define CGXCollectionViewTagScreenHeight                [UIScreen mainScreen].bounds.size.height
 
@@ -48,8 +50,9 @@
 }
 - (void)initializeView
 {
+    self.tagsArray = [NSMutableArray array];
     self.isAdaptive = YES;
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) collectionViewLayout:[self preferredFlowLayout]];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), 0.1) collectionViewLayout:[self preferredFlowLayout]];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [_collectionView setBackgroundColor:[UIColor clearColor]];
@@ -71,6 +74,7 @@
 - (void)setManager:(CGXCollectionTagsViewManager *)manager
 {
     _manager = manager;
+    self.tagsArray = manager.tagsArray;
 }
 - (void)setCellType:(CGXCollectionTagsViewAlignDirectionType)cellType
 {
@@ -78,17 +82,17 @@
     self.collectionView.collectionViewLayout = [self preferredFlowLayout];
     [self.collectionView reloadData];
 }
-- (CGXCollectionViewLeftAlignedTagsFlowLayout *)preferredFlowLayout
+- (CGXCollectionTagsViewAlignedFlowLayout *)preferredFlowLayout
 {
-    CGXCustomStateTagsAlignFlowLayoutAlignType cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
+    CGXCollectionTagsViewAlignedFlowLayoutAlignType cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft;
     if (self.cellType==CGXCollectionTagsViewAlignDirectionLeft) {
-        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithLeft;
+        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft;
     } else if (self.cellType == CGXCollectionTagsViewAlignDirectionRight){
-        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithRight;
+        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeRight;
     }else{
-        cellType = CGXCustomStateTagsAlignFlowLayoutAlignWithCenter;
+        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeCenter;
     }
-    CGXCollectionViewLeftAlignedTagsFlowLayout *flowLayout = [[CGXCollectionViewLeftAlignedTagsFlowLayout alloc] initWthType:cellType];
+    CGXCollectionTagsViewAlignedFlowLayout *flowLayout = [[CGXCollectionTagsViewAlignedFlowLayout alloc] initWthType:cellType];
     return flowLayout;
 }
 - (void)layoutSubviews
@@ -96,14 +100,13 @@
     [super layoutSubviews];
     
     if (self.isAdaptive) {
-        CGXCollectionViewLeftAlignedTagsFlowLayout *layout = (CGXCollectionViewLeftAlignedTagsFlowLayout *)_collectionView.collectionViewLayout;
+        CGXCollectionTagsViewAlignedFlowLayout *layout = (CGXCollectionTagsViewAlignedFlowLayout *)_collectionView.collectionViewLayout;
         [layout invalidateLayout];
         
         _collectionView.frame = self.bounds;
         if (!CGSizeEqualToSize(self.bounds.size, [self intrinsicContentSize])) {
             [self invalidateIntrinsicContentSize];
         }
-        
         CGFloat height = _collectionView.collectionViewLayout.collectionViewContentSize.height;
         if (height != 0 && height != self.bounds.size.height) {
             CGRect frame = self.frame;
@@ -128,11 +131,11 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return self.manager.tagsArray.count;
+    return self.tagsArray.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.manager.tagsArray[section] count];
+    return [self.tagsArray[section] count];
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
@@ -171,7 +174,7 @@
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGXCollectionTagsViewModel *model = self.manager.tagsArray[indexPath.section][indexPath.row];
+    CGXCollectionTagsViewModel *model = self.tagsArray[indexPath.section][indexPath.row];
     CGSize size = [self calculateTitleSize:model.title];
     if (self.manager.iSCustom) {
         CGXCollectionTagsViewCell *cell = (CGXCollectionTagsViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -194,7 +197,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGXCollectionTagsViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CGXCollectionTagsViewCell" forIndexPath:indexPath];
-    CGXCollectionTagsViewModel *model = self.manager.tagsArray[indexPath.section][indexPath.row];
+    CGXCollectionTagsViewModel *model = self.tagsArray[indexPath.section][indexPath.row];
     if (self.manager.iSCustom) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(showCollectionTagsView:Model:Cell:ItemAtIndexPath:)]) {
             [self.delegate showCollectionTagsView:self Model:model Cell:cell ItemAtIndexPath:indexPath];
@@ -243,7 +246,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGXCollectionTagsViewModel *model = self.manager.tagsArray[indexPath.section][indexPath.row];
+    CGXCollectionTagsViewModel *model = self.tagsArray[indexPath.section][indexPath.row];
     CGXCollectionTagsViewCell *cell = (CGXCollectionTagsViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (self.manager.isUser) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(selectCollectionTagsView:Model:Cell:ItemAtIndexPath:)]) {
@@ -254,6 +257,13 @@
             self.selectBlock(weakSelf, model, cell, indexPath);
         }
     }
+}
+- (void)setTagsArray:(NSMutableArray<NSMutableArray<CGXCollectionTagsViewModel *> *> *)tagsArray
+{
+    _tagsArray = tagsArray;
+    [self.collectionView reloadData];
+    [self layoutIfNeeded];
+    [self layoutSubviews];
 }
 - (void)upDateCollectionView
 {

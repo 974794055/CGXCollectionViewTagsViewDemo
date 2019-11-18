@@ -6,7 +6,7 @@
 //  Copyright © 2017年 曹贵鑫. All rights reserved.
 //
 
-#import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
+#import "CGXCollectionTagsViewAlignedFlowLayout.h"
 
 @interface UICollectionViewLayoutAttributes (LeftAligned)
 
@@ -25,22 +25,19 @@
 
 @end
 
-@interface  CGXCollectionViewLeftAlignedTagsFlowLayout()
+@interface  CGXCollectionTagsViewAlignedFlowLayout()
 {
     //在居中对齐的时候需要知道这行所有cell的宽度总和
     CGFloat _sumCellWidth ;
 }
 @end
 
-@implementation CGXCollectionViewLeftAlignedTagsFlowLayout
+@implementation CGXCollectionTagsViewAlignedFlowLayout
 
 -(instancetype)init{
-    return [self initWithType: CGXCustomStateTagsAlignFlowLayoutAlignWithCenter betweenOfCell:10];
+    return [self initWthType:CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft];
 }
--(instancetype)initWthType:( CGXCustomStateTagsAlignFlowLayoutAlignType)cellType{
-    return [self initWithType:cellType betweenOfCell:10];
-}
--(instancetype)initWithType:( CGXCustomStateTagsAlignFlowLayoutAlignType)cellType betweenOfCell:(CGFloat)betweenOfCell{
+-(instancetype)initWthType:(CGXCollectionTagsViewAlignedFlowLayoutAlignType)cellType{
     self = [super init];
     if (self){
         self.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -111,7 +108,7 @@
     CGFloat nowWidth = 0.0;
 
     switch (_cellType) {
-        case  CGXCustomStateTagsAlignFlowLayoutAlignWithLeft:
+        case  CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft:
             nowWidth = self.sectionInset.left;
             for (UICollectionViewLayoutAttributes * attributes in layoutAttributes) {
                 CGRect nowFrame = attributes.frame;
@@ -123,7 +120,7 @@
             [layoutAttributes removeAllObjects];
             break;
             
-        case  CGXCustomStateTagsAlignFlowLayoutAlignWithCenter:
+        case  CGXCollectionTagsViewAlignedFlowLayoutAlignTypeCenter:
             nowWidth = (self.collectionView.frame.size.width - _sumCellWidth - ((layoutAttributes.count - 1) * cellSpace)) / 2;
             for (UICollectionViewLayoutAttributes * attributes in layoutAttributes) {
                 CGRect nowFrame = attributes.frame;
@@ -135,7 +132,7 @@
             [layoutAttributes removeAllObjects];
             break;
             
-        case  CGXCustomStateTagsAlignFlowLayoutAlignWithRight:
+        case  CGXCollectionTagsViewAlignedFlowLayoutAlignTypeRight:
             nowWidth = self.collectionView.frame.size.width - self.sectionInset.right;
             for (NSInteger index = layoutAttributes.count - 1 ; index >= 0 ; index-- ) {
                 UICollectionViewLayoutAttributes * attributes = layoutAttributes[index];
@@ -189,7 +186,7 @@
 - (CGFloat)evaluatedMinimumInteritemSpacingForSectionAtIndex:(NSInteger)sectionIndex
 {
     if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumInteritemSpacingForSectionAtIndex:)]) {
-        id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
+        id<CGXCollectionTagsViewAlignedFlowLayoutDelegate> delegate = (id<CGXCollectionTagsViewAlignedFlowLayoutDelegate>)self.collectionView.delegate;
         
         return [delegate collectionView:self.collectionView layout:self minimumInteritemSpacingForSectionAtIndex:sectionIndex];
     } else {
@@ -200,7 +197,7 @@
 - (CGFloat)evaluatedMinimumLineSpacingForSectionAtIndex:(NSInteger)sectionIndex
 {
     if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:minimumLineSpacingForSectionAtIndex:)]) {
-        id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
+        id<CGXCollectionTagsViewAlignedFlowLayoutDelegate> delegate = (id<CGXCollectionTagsViewAlignedFlowLayoutDelegate>)self.collectionView.delegate;
         
         return [delegate collectionView:self.collectionView layout:self minimumLineSpacingForSectionAtIndex:sectionIndex];
     } else {
@@ -211,7 +208,7 @@
 - (UIEdgeInsets)evaluatedSectionInsetForItemAtIndex:(NSInteger)index
 {
     if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:insetForSectionAtIndex:)]) {
-        id<UICollectionViewDelegateLeftAlignedLayout> delegate = (id<UICollectionViewDelegateLeftAlignedLayout>)self.collectionView.delegate;
+        id<CGXCollectionTagsViewAlignedFlowLayoutDelegate> delegate = (id<CGXCollectionTagsViewAlignedFlowLayoutDelegate>)self.collectionView.delegate;
         
         return [delegate collectionView:self.collectionView layout:self insetForSectionAtIndex:index];
     } else {

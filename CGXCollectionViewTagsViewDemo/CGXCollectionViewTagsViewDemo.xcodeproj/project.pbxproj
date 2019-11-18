@@ -14,7 +14,7 @@
 		D32DF3FF20208FCD00C6F972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3FD20208FCD00C6F972 /* LaunchScreen.storyboard */; };
 		D32DF40220208FCD00C6F972 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40120208FCD00C6F972 /* main.m */; };
 		D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */; };
-		D32DF42020209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */; };
+		D32DF42020209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */; };
 		D32DF42320209DE300C6F972 /* CGXCollectionTagsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */; };
 		D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */; };
 		D32DF42920209E6B00C6F972 /* CGXCollectionTagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */; };
@@ -33,15 +33,14 @@
 		D32DF40120208FCD00C6F972 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsView.h; sourceTree = "<group>"; };
 		D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsView.m; sourceTree = "<group>"; };
-		D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionViewLeftAlignedTagsFlowLayout.m; sourceTree = "<group>"; };
-		D32DF41F20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionViewLeftAlignedTagsFlowLayout.h; sourceTree = "<group>"; };
+		D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewAlignedFlowLayout.m; sourceTree = "<group>"; };
+		D32DF41F20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewAlignedFlowLayout.h; sourceTree = "<group>"; };
 		D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewManager.m; sourceTree = "<group>"; };
 		D32DF42220209DE300C6F972 /* CGXCollectionTagsViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewManager.h; sourceTree = "<group>"; };
 		D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewCell.m; sourceTree = "<group>"; };
 		D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewCell.h; sourceTree = "<group>"; };
 		D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewModel.h; sourceTree = "<group>"; };
 		D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewModel.m; sourceTree = "<group>"; };
-		D32DF42A2020A5B700C6F972 /* CGXCollectionTagsViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewMacro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,17 +90,16 @@
 		D32DF40820208FFB00C6F972 /* CGXCollectionViewTagsView */ = {
 			isa = PBXGroup;
 			children = (
-				D32DF42A2020A5B700C6F972 /* CGXCollectionTagsViewMacro.h */,
-				D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */,
-				D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */,
-				D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */,
-				D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */,
-				D32DF41F20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.h */,
-				D32DF41E20209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m */,
 				D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */,
 				D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */,
 				D32DF42220209DE300C6F972 /* CGXCollectionTagsViewManager.h */,
 				D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */,
+				D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */,
+				D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */,
+				D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */,
+				D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */,
+				D32DF41F20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.h */,
+				D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */,
 			);
 			name = CGXCollectionViewTagsView;
 			path = ../../CGXCollectionViewTagsView;
@@ -180,7 +178,7 @@
 			files = (
 				D32DF42920209E6B00C6F972 /* CGXCollectionTagsViewModel.m in Sources */,
 				D32DF42320209DE300C6F972 /* CGXCollectionTagsViewManager.m in Sources */,
-				D32DF42020209DAA00C6F972 /* CGXCollectionViewLeftAlignedTagsFlowLayout.m in Sources */,
+				D32DF42020209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */,
 				D32DF3F720208FCD00C6F972 /* ViewController.m in Sources */,
 				D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */,
 				D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */,

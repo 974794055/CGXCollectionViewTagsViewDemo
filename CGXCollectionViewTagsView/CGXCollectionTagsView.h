@@ -5,12 +5,24 @@
 //  Created by 曹贵鑫 on 2018/1/30.
 //  Copyright © 2018年 曹贵鑫. All rights reserved.
 //
+/*
+
+下载链接：https://github.com/974794055/CGXCollectionViewTagsViewDemo.git
+QQ号：974794055
+群名称：
+CGXCollectionTagsView交流群
+群   号：
+版本： 1.2.0
+*/
+
 
 #import <UIKit/UIKit.h>
-#import "CGXCollectionViewLeftAlignedTagsFlowLayout.h"
+
 #import "CGXCollectionTagsViewModel.h"
 #import "CGXCollectionTagsViewManager.h"
 #import "CGXCollectionTagsViewCell.h"
+
+
 
 typedef NS_ENUM(NSInteger, CGXCollectionTagsViewAlignDirectionType){
     CGXCollectionTagsViewAlignDirectionLeft,
@@ -31,7 +43,7 @@ typedef void(^CGXCollectionTagsViewHeightBlock)(CGXCollectionTagsView *tagsView,
 
 @interface CGXCollectionTagsView : UIView<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
-//可不使用此初始化方式
+//可不使用此初始化方式  给个默认高度
 - (instancetype)initWithFrame:(CGRect)frame WithManager:(CGXCollectionTagsViewManager *)manager;
 
 @property(nonatomic,weak)id <CGXCollectionTagsViewDelegate>delegate;
@@ -48,6 +60,12 @@ typedef void(^CGXCollectionTagsViewHeightBlock)(CGXCollectionTagsView *tagsView,
 @property (nonatomic,copy) CGXCollectionTagsViewSelectBlock selectBlock;
 @property (nonatomic,copy) CGXCollectionTagsViewCellForItemBlock cellForItemBlock;
 @property (nonatomic,copy) CGXCollectionTagsViewHeightBlock heightBlock;
+
+
+/*
+-  tagsArray 格式  @[@[model,model],@[model],@[model,model]]
+ */
+@property (nonatomic , strong) NSMutableArray<NSMutableArray<CGXCollectionTagsViewModel *> *> *tagsArray;//标签数组
 
 @end
 
