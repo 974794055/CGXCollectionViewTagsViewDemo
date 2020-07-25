@@ -1,0 +1,1 @@
+../../../../../CGXCollectionViewTagsView/CGXCollectionTagsViewAlignedFlowLayout.h

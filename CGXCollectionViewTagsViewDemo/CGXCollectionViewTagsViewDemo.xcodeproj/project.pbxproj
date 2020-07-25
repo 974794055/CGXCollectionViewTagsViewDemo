@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E6F693B24CBDF5B00EAE61B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9E6F693824CBDF5B00EAE61B /* README.md */; };
+		9E6F693C24CBDF5B00EAE61B /* CGXCollectionViewTagsView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9E6F693924CBDF5B00EAE61B /* CGXCollectionViewTagsView.podspec */; };
+		9E6F693D24CBDF5B00EAE61B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9E6F693A24CBDF5B00EAE61B /* LICENSE */; };
 		D32DF3F420208FCD00C6F972 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF3F320208FCD00C6F972 /* AppDelegate.m */; };
 		D32DF3F720208FCD00C6F972 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF3F620208FCD00C6F972 /* ViewController.m */; };
 		D32DF3FA20208FCD00C6F972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3F820208FCD00C6F972 /* Main.storyboard */; };
 		D32DF3FC20208FCD00C6F972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3FB20208FCD00C6F972 /* Assets.xcassets */; };
 		D32DF3FF20208FCD00C6F972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32DF3FD20208FCD00C6F972 /* LaunchScreen.storyboard */; };
 		D32DF40220208FCD00C6F972 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40120208FCD00C6F972 /* main.m */; };
-		D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */; };
-		D32DF42020209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */; };
-		D32DF42320209DE300C6F972 /* CGXCollectionTagsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */; };
-		D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */; };
-		D32DF42920209E6B00C6F972 /* CGXCollectionTagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */; };
+		D90347965A39662E3E8F33FE /* libPods-CGXCollectionViewTagsViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D0CC8D03F167B14A86EF2 /* libPods-CGXCollectionViewTagsViewDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EB1B55C4140E23395DA9295 /* Pods-CGXCollectionViewTagsViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCollectionViewTagsViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-CGXCollectionViewTagsViewDemo/Pods-CGXCollectionViewTagsViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9E6F693824CBDF5B00EAE61B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		9E6F693924CBDF5B00EAE61B /* CGXCollectionViewTagsView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CGXCollectionViewTagsView.podspec; path = ../../../CGXCollectionViewTagsView.podspec; sourceTree = "<group>"; };
+		9E6F693A24CBDF5B00EAE61B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../../LICENSE; sourceTree = "<group>"; };
+		A31D0CC8D03F167B14A86EF2 /* libPods-CGXCollectionViewTagsViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CGXCollectionViewTagsViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD662FF2356FF6783C8F0911 /* Pods-CGXCollectionViewTagsViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CGXCollectionViewTagsViewDemo.release.xcconfig"; path = "Target Support Files/Pods-CGXCollectionViewTagsViewDemo/Pods-CGXCollectionViewTagsViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D32DF3EF20208FCD00C6F972 /* CGXCollectionViewTagsViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGXCollectionViewTagsViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D32DF3F220208FCD00C6F972 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D32DF3F320208FCD00C6F972 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,16 +36,6 @@
 		D32DF3FE20208FCD00C6F972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D32DF40020208FCD00C6F972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D32DF40120208FCD00C6F972 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsView.h; sourceTree = "<group>"; };
-		D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsView.m; sourceTree = "<group>"; };
-		D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewAlignedFlowLayout.m; sourceTree = "<group>"; };
-		D32DF41F20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewAlignedFlowLayout.h; sourceTree = "<group>"; };
-		D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewManager.m; sourceTree = "<group>"; };
-		D32DF42220209DE300C6F972 /* CGXCollectionTagsViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewManager.h; sourceTree = "<group>"; };
-		D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewCell.m; sourceTree = "<group>"; };
-		D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewCell.h; sourceTree = "<group>"; };
-		D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGXCollectionTagsViewModel.h; sourceTree = "<group>"; };
-		D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGXCollectionTagsViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,17 +43,47 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90347965A39662E3E8F33FE /* libPods-CGXCollectionViewTagsViewDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		379EEDA67CE739EAEE23C45A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A31D0CC8D03F167B14A86EF2 /* libPods-CGXCollectionViewTagsViewDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		530BB45A344D0FC8AFD39A1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EB1B55C4140E23395DA9295 /* Pods-CGXCollectionViewTagsViewDemo.debug.xcconfig */,
+				AD662FF2356FF6783C8F0911 /* Pods-CGXCollectionViewTagsViewDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9E6F693724CBDF5000EAE61B /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				9E6F693924CBDF5B00EAE61B /* CGXCollectionViewTagsView.podspec */,
+				9E6F693A24CBDF5B00EAE61B /* LICENSE */,
+				9E6F693824CBDF5B00EAE61B /* README.md */,
+			);
+			path = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
 		D32DF3E620208FCD00C6F972 = {
 			isa = PBXGroup;
 			children = (
 				D32DF3F120208FCD00C6F972 /* CGXCollectionViewTagsViewDemo */,
 				D32DF3F020208FCD00C6F972 /* Products */,
+				530BB45A344D0FC8AFD39A1C /* Pods */,
+				379EEDA67CE739EAEE23C45A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +98,7 @@
 		D32DF3F120208FCD00C6F972 /* CGXCollectionViewTagsViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D32DF40820208FFB00C6F972 /* CGXCollectionViewTagsView */,
+				9E6F693724CBDF5000EAE61B /* Podspec Metadata */,
 				D32DF3F220208FCD00C6F972 /* AppDelegate.h */,
 				D32DF3F320208FCD00C6F972 /* AppDelegate.m */,
 				D32DF3F520208FCD00C6F972 /* ViewController.h */,
@@ -87,24 +112,6 @@
 			path = CGXCollectionViewTagsViewDemo;
 			sourceTree = "<group>";
 		};
-		D32DF40820208FFB00C6F972 /* CGXCollectionViewTagsView */ = {
-			isa = PBXGroup;
-			children = (
-				D32DF4092020900600C6F972 /* CGXCollectionTagsView.h */,
-				D32DF40A2020900600C6F972 /* CGXCollectionTagsView.m */,
-				D32DF42220209DE300C6F972 /* CGXCollectionTagsViewManager.h */,
-				D32DF42120209DE300C6F972 /* CGXCollectionTagsViewManager.m */,
-				D32DF42520209E6A00C6F972 /* CGXCollectionTagsViewCell.h */,
-				D32DF42420209E6A00C6F972 /* CGXCollectionTagsViewCell.m */,
-				D32DF42620209E6A00C6F972 /* CGXCollectionTagsViewModel.h */,
-				D32DF42720209E6B00C6F972 /* CGXCollectionTagsViewModel.m */,
-				D32DF41F20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.h */,
-				D32DF41E20209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m */,
-			);
-			name = CGXCollectionViewTagsView;
-			path = ../../CGXCollectionViewTagsView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D32DF40520208FCD00C6F972 /* Build configuration list for PBXNativeTarget "CGXCollectionViewTagsViewDemo" */;
 			buildPhases = (
+				A50D6EE39232B7C8535A58CA /* [CP] Check Pods Manifest.lock */,
 				D32DF3EB20208FCD00C6F972 /* Sources */,
 				D32DF3EC20208FCD00C6F972 /* Frameworks */,
 				D32DF3ED20208FCD00C6F972 /* Resources */,
@@ -163,25 +171,48 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6F693D24CBDF5B00EAE61B /* LICENSE in Resources */,
 				D32DF3FF20208FCD00C6F972 /* LaunchScreen.storyboard in Resources */,
 				D32DF3FC20208FCD00C6F972 /* Assets.xcassets in Resources */,
+				9E6F693C24CBDF5B00EAE61B /* CGXCollectionViewTagsView.podspec in Resources */,
+				9E6F693B24CBDF5B00EAE61B /* README.md in Resources */,
 				D32DF3FA20208FCD00C6F972 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A50D6EE39232B7C8535A58CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CGXCollectionViewTagsViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D32DF3EB20208FCD00C6F972 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32DF42920209E6B00C6F972 /* CGXCollectionTagsViewModel.m in Sources */,
-				D32DF42320209DE300C6F972 /* CGXCollectionTagsViewManager.m in Sources */,
-				D32DF42020209DAA00C6F972 /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */,
 				D32DF3F720208FCD00C6F972 /* ViewController.m in Sources */,
-				D32DF42820209E6B00C6F972 /* CGXCollectionTagsViewCell.m in Sources */,
-				D32DF40B2020900600C6F972 /* CGXCollectionTagsView.m in Sources */,
 				D32DF40220208FCD00C6F972 /* main.m in Sources */,
 				D32DF3F420208FCD00C6F972 /* AppDelegate.m in Sources */,
 			);
@@ -315,6 +346,7 @@
 		};
 		D32DF40620208FCD00C6F972 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EB1B55C4140E23395DA9295 /* Pods-CGXCollectionViewTagsViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -330,6 +362,7 @@
 		};
 		D32DF40720208FCD00C6F972 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD662FF2356FF6783C8F0911 /* Pods-CGXCollectionViewTagsViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,1 @@
+../../../../../CGXCollectionViewTagsView/CGXCollectionTagsViewManager.h

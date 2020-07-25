@@ -1,0 +1,16 @@
+PODS:
+  - CGXCollectionViewTagsView (1.2.0)
+
+DEPENDENCIES:
+  - CGXCollectionViewTagsView (from `../`)
+
+EXTERNAL SOURCES:
+  CGXCollectionViewTagsView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CGXCollectionViewTagsView: a01b6032d0d8a70b75dc7b7fe4be4f5079a32fda
+
+PODFILE CHECKSUM: 0db23b55f63ffd674146172d766957437ce8e4e2
+
+COCOAPODS: 1.10.0.beta.1
