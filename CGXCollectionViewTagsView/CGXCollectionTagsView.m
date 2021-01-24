@@ -2,12 +2,12 @@
 //  CGXCollectionViewTagsView.m
 //  CGXCollectionViewTagsViewDemo
 //
-//  Created by 曹贵鑫 on 2018/1/30.
-//  Copyright © 2018年 曹贵鑫. All rights reserved.
+//  Created by CGX on 2018/1/30.
+//  Copyright © 2018年 CGX. All rights reserved.
 //
 
 #import "CGXCollectionTagsView.h"
-#import "CGXCollectionTagsViewAlignedFlowLayout.h"
+#import "CGXCollectionTagsViewLayout.h"
 
 #define CGXCollectionViewTagScreenWidth                 [UIScreen mainScreen].bounds.size.width
 #define CGXCollectionViewTagScreenHeight                [UIScreen mainScreen].bounds.size.height
@@ -82,17 +82,17 @@
     self.collectionView.collectionViewLayout = [self preferredFlowLayout];
     [self.collectionView reloadData];
 }
-- (CGXCollectionTagsViewAlignedFlowLayout *)preferredFlowLayout
+- (CGXCollectionTagsViewLayout *)preferredFlowLayout
 {
-    CGXCollectionTagsViewAlignedFlowLayoutAlignType cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft;
+    CGXCollectionTagsViewLayoutAlignType cellType = CGXCollectionTagsViewLayoutAlignTypeLeft;
     if (self.cellType==CGXCollectionTagsViewAlignDirectionLeft) {
-        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeLeft;
+        cellType = CGXCollectionTagsViewLayoutAlignTypeLeft;
     } else if (self.cellType == CGXCollectionTagsViewAlignDirectionRight){
-        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeRight;
+        cellType = CGXCollectionTagsViewLayoutAlignTypeRight;
     }else{
-        cellType = CGXCollectionTagsViewAlignedFlowLayoutAlignTypeCenter;
+        cellType = CGXCollectionTagsViewLayoutAlignTypeCenter;
     }
-    CGXCollectionTagsViewAlignedFlowLayout *flowLayout = [[CGXCollectionTagsViewAlignedFlowLayout alloc] initWthType:cellType];
+    CGXCollectionTagsViewLayout *flowLayout = [[CGXCollectionTagsViewLayout alloc] initWthType:cellType];
     return flowLayout;
 }
 - (void)layoutSubviews
@@ -100,7 +100,7 @@
     [super layoutSubviews];
     
     if (self.isAdaptive) {
-        CGXCollectionTagsViewAlignedFlowLayout *layout = (CGXCollectionTagsViewAlignedFlowLayout *)_collectionView.collectionViewLayout;
+        CGXCollectionTagsViewLayout *layout = (CGXCollectionTagsViewLayout *)_collectionView.collectionViewLayout;
         [layout invalidateLayout];
         
         _collectionView.frame = self.bounds;

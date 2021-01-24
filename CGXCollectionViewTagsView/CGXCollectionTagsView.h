@@ -2,17 +2,16 @@
 //  CGXCollectionViewTagsView.h
 //  CGXCollectionViewTagsViewDemo
 //
-//  Created by 曹贵鑫 on 2018/1/30.
-//  Copyright © 2018年 曹贵鑫. All rights reserved.
+//  Created by CGX on 2018/1/30.
+//  Copyright © 2018年 CGX. All rights reserved.
 //
 /*
 
 下载链接：https://github.com/974794055/CGXCollectionViewTagsViewDemo.git
 QQ号：974794055
 群名称：
-CGXCollectionTagsView交流群
 群   号：
-版本： 1.2.0
+版本： 1.2.1
 */
 
 

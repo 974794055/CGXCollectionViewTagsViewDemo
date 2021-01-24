@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08C7274126338EA288F5798ADE777137 /* CGXCollectionTagsViewAlignedFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewAlignedFlowLayout.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		08C7274126338EA288F5798ADE777137 /* CGXCollectionTagsViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewLayout.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0FFCA88CC0A9BF7B7B5457716555C97E /* CGXCollectionTagsViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7254F742401CC4AE5368221918390908 /* CGXCollectionTagsViewManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1749205DD6890D6E38F64C587633D825 /* CGXCollectionViewTagsView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA65B1C0E8109961CB0C8198A790A2 /* CGXCollectionViewTagsView-dummy.m */; };
 		3DB71B763FA4A8A995F827A924953EB1 /* CGXCollectionTagsViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = CC06E230CB1D6272169C87B8D114554C /* CGXCollectionTagsViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -16,7 +16,7 @@
 		9D37D7D0125F50E77EDD948BB2CC43A4 /* CGXCollectionTagsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2478D13760319BB3DEBC62E2737E4FB6 /* CGXCollectionTagsViewCell.m */; };
 		A5428A55E7907EB8758F8EBF3B095B03 /* CGXCollectionTagsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 386932A25FBB4C9BB4D87D59D70F064B /* CGXCollectionTagsViewModel.m */; };
 		AD0EA90CBD85FE736DCD58F7306B3123 /* Pods-CGXCollectionViewTagsViewDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9033738F7F10C6058E38DB71C4585C24 /* Pods-CGXCollectionViewTagsViewDemo-dummy.m */; };
-		B3715BE46FB4C80A0CA4D0A6C6CF4AAC /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewAlignedFlowLayout.m */; };
+		B3715BE46FB4C80A0CA4D0A6C6CF4AAC /* CGXCollectionTagsViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewLayout.m */; };
 		BB3C37B507EAA9C29B323A352CA8ED6B /* CGXCollectionTagsViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = C7AA89703BE93FA7E58FF5AAADF87305 /* CGXCollectionTagsViewModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FE69705A9616CEE379E5B034B866F1A5 /* CGXCollectionTagsViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A97FF0759C73480855C609E55BC99 /* CGXCollectionTagsViewManager.m */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewAlignedFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCollectionTagsViewAlignedFlowLayout.h; path = CGXCollectionViewTagsView/CGXCollectionTagsViewAlignedFlowLayout.h; sourceTree = "<group>"; };
-		097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewAlignedFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCollectionTagsViewAlignedFlowLayout.m; path = CGXCollectionViewTagsView/CGXCollectionTagsViewAlignedFlowLayout.m; sourceTree = "<group>"; };
+		0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CGXCollectionTagsViewLayout.h; path = CGXCollectionViewTagsView/CGXCollectionTagsViewLayout.h; sourceTree = "<group>"; };
+		097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CGXCollectionTagsViewLayout.m; path = CGXCollectionViewTagsView/CGXCollectionTagsViewLayout.m; sourceTree = "<group>"; };
 		0E9086DE2F1320AE7B22FEC8642795F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		19D3EF6F63B6BACBD91792F1125EF9B4 /* libCGXCollectionViewTagsView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCGXCollectionViewTagsView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA681F652CB6EA551C2C1C6A86844CC /* Pods-CGXCollectionViewTagsViewDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CGXCollectionViewTagsViewDemo-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -82,8 +82,8 @@
 			children = (
 				8C120E960AC42B6997C79009FB28EE7B /* CGXCollectionTagsView.h */,
 				4B272851E498F3012398A094CE267B9A /* CGXCollectionTagsView.m */,
-				0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewAlignedFlowLayout.h */,
-				097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewAlignedFlowLayout.m */,
+				0208F29DF0B4E815449438AEA91E8173 /* CGXCollectionTagsViewLayout.h */,
+				097CB1249FDD27A6C8EF100E32BD4556 /* CGXCollectionTagsViewLayout.m */,
 				CC06E230CB1D6272169C87B8D114554C /* CGXCollectionTagsViewCell.h */,
 				2478D13760319BB3DEBC62E2737E4FB6 /* CGXCollectionTagsViewCell.m */,
 				7254F742401CC4AE5368221918390908 /* CGXCollectionTagsViewManager.h */,
@@ -190,7 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B29E7055BB115534E73A52F80FE53EE /* CGXCollectionTagsView.h in Headers */,
-				08C7274126338EA288F5798ADE777137 /* CGXCollectionTagsViewAlignedFlowLayout.h in Headers */,
+				08C7274126338EA288F5798ADE777137 /* CGXCollectionTagsViewLayout.h in Headers */,
 				3DB71B763FA4A8A995F827A924953EB1 /* CGXCollectionTagsViewCell.h in Headers */,
 				0FFCA88CC0A9BF7B7B5457716555C97E /* CGXCollectionTagsViewManager.h in Headers */,
 				BB3C37B507EAA9C29B323A352CA8ED6B /* CGXCollectionTagsViewModel.h in Headers */,
@@ -269,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6A6AC3836EF766CE6C9260FDCCD1D9 /* CGXCollectionTagsView.m in Sources */,
-				B3715BE46FB4C80A0CA4D0A6C6CF4AAC /* CGXCollectionTagsViewAlignedFlowLayout.m in Sources */,
+				B3715BE46FB4C80A0CA4D0A6C6CF4AAC /* CGXCollectionTagsViewLayout.m in Sources */,
 				9D37D7D0125F50E77EDD948BB2CC43A4 /* CGXCollectionTagsViewCell.m in Sources */,
 				FE69705A9616CEE379E5B034B866F1A5 /* CGXCollectionTagsViewManager.m in Sources */,
 				A5428A55E7907EB8758F8EBF3B095B03 /* CGXCollectionTagsViewModel.m in Sources */,
